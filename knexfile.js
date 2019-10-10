@@ -33,6 +33,10 @@ module.exports = {
       password: "password"
     },
     pool: {
+      afterCreate: (conn, done) => {
+        //enforces foreign key constrains
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
       min: 2,
       max: 10
     },

@@ -14,6 +14,12 @@ exports.up = function(knex) {
         .notNullable()
         .unique();
       tbl.integer("quantity").notNullable();
+      tbl
+        .integer("recipe_id")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("recipe");
     })
     .createTable("steps", tbl => {
       tbl.integer("step_number").notNullable();
