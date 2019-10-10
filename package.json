@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/connorholly11/node-db4-challenge#readme",
   "dependencies": {
+    "cleaner": "^2.0.0-alpha",
     "express": "^4.17.1",
     "knex": "^0.19.5",
+    "knex-cleaner": "^1.3.0",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
