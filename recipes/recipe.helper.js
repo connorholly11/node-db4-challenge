@@ -17,15 +17,15 @@ function getRecipesById(id) {
 
 function getShoppingList(recipe_id) {
   return db("ingredients")
-    .join("recipe", "ingredients.recipe_id", "=", "recipe_id")
+    .join("recipe", "ingredients.recipe_id", "=", "recipe.id")
     .select("recipe.recipe", "ingredients.*")
-    .where("recipe_id", "=", recipe_id);
+    .where("ingredients.recipe_id", "=", recipe_id);
 }
 
 function getInstructions(recipe_id) {
   return db("steps")
-    .join("recipe", "steps.recipe_id", "=", "recipe_id")
+    .join("recipe", "steps.recipe_id", "=", "recipe.id")
     .select("recipe.recipe", "steps.*")
-    .where("recipe_id", "=", recipe_id)
-    .orderBy("instruction");
+    .where("steps.recipe_id", "=", recipe_id);
+  // .orderBy("instruction");
 }
